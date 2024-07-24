@@ -1,29 +1,30 @@
 import React from "react";
 import "./App.css";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
 import Home from './PortfolioContainer/Home/Home';
 import About from './PortfolioContainer/AboutMe/About';
 import Resume from './PortfolioContainer/Resume/Resume';
 import Testimonial from './PortfolioContainer/Testimonial/Testimonial';
 import ContactMe from './PortfolioContainer/ContactMe/Contact'
 import Project from './PortfolioContainer/Projects/Project';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/AboutMe" component={About}/>
-          <Route path="/Resume" component={Resume}/>
-          <Route path="/Projects" component={Project}/>
-          <Route path="/Testimonial" component={Testimonial}/>
-          <Route path="/ContactMe" component={ContactMe}/>
-        </Switch> 
+        <Routes>
+          <Route index element={<Home />} />
+          <Route path="/AboutMe" element={<About />} />
+          <Route path="/Resume" element={<Resume />} />
+          <Route path="/Projects" element={<Project />} />
+          <Route path="/Testimonial" element={<Testimonial />} />
+          <Route path="/ContactMe" element={<ContactMe />} />/
+          </Routes> 
       </Router>
-  </div>
-  )
+    </div>
+  );
 }
 
 export default App;
